@@ -13,9 +13,9 @@
 
 ```
 .
-├── question1_eda (1).py            # Ερώτημα 1: Διερευνητική Ανάλυση Δεδομένων
-├── question2_classification (1).py # Ερώτημα 2: Κατηγοριοποίηση (LR, DT, RF)
-├── question3_clustering (1).py     # Ερώτημα 3: Ομαδοποίηση (K-Means, Hierarchical, DBSCAN)
+├── question1_eda.py            # Ερώτημα 1: Διερευνητική Ανάλυση Δεδομένων
+├── question2_classification.py # Ερώτημα 2: Κατηγοριοποίηση (LR, DT, RF)
+├── question3_clustering.py     # Ερώτημα 3: Ομαδοποίηση (K-Means, Hierarchical, DBSCAN)
 ├── requirements.txt                # Απαιτούμενες βιβλιοθήκες
 ├── report.pdf                      # Πλήρης αναφορά
 ├── report.docx                     # Αναφορά (Word source)
@@ -44,9 +44,9 @@ pip install -r requirements.txt
 Σειρά υποχρεωτική (το Q2 και Q3 χρειάζονται το `cleaned_dataset.csv` που παράγει το Q1):
 
 ```bash
-python "question1_eda (1).py"           # Παράγει cleaned_dataset.csv
-python "question2_classification (1).py" # Ταξινόμηση
-python "question3_clustering (1).py"     # Ομαδοποίηση
+python question1_eda.py            # Παράγει cleaned_dataset.csv
+python question2_classification.py # Ταξινόμηση
+python question3_clustering.py     # Ομαδοποίηση
 ```
 
 ## Σύντομη Σύνοψη Αποτελεσμάτων
