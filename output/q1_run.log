@@ -1,0 +1,53 @@
+Αρχικό dataset: (2830743, 79)
+
+Τύποι δεδομένων στηλών:
+int64      54
+float64    24
+object      1
+Name: count, dtype: int64
+
+Ελλιπείς τιμές: 5,734 σε 2 στήλες
+Διπλότυπες εγγραφές: 308,381
+Αρνητικές τιμές που διορθώθηκαν (clip σε 0): 2,446,321
+
+Μετά καθαρισμό: (2520798, 79)  (αφαιρέθηκαν 309,945 γραμμές, 0 στήλες)
+
+Κατανομή κλάσεων:
+Label
+BENIGN                        2095057
+DoS Hulk                       172846
+DDoS                           128014
+PortScan                        90694
+DoS GoldenEye                   10286
+FTP-Patator                      5931
+DoS slowloris                    5385
+DoS Slowhttptest                 5228
+SSH-Patator                      3219
+Bot                              1948
+Web Attack - Brute Force         1470
+Web Attack - XSS                  652
+Infiltration                       36
+Web Attack - Sql Injection         21
+Heartbleed                         11
+Name: count, dtype: int64
+Τελικά features: 45
+Dedup μετά feature selection: -5,225 γραμμές
+Αποθηκεύτηκε cleaned_dataset.csv: (2515573, 46)
+Κατανομή κλάσεων:
+Label
+BENIGN                        2089832
+DoS Hulk                       172846
+DDoS                           128014
+PortScan                        90694
+DoS GoldenEye                   10286
+FTP-Patator                      5931
+DoS slowloris                    5385
+DoS Slowhttptest                 5228
+SSH-Patator                      3219
+Bot                              1948
+Web Attack - Brute Force         1470
+Web Attack - XSS                  652
+Infiltration                       36
+Web Attack - Sql Injection         21
+Heartbleed                         11
+Name: count, dtype: int64

@@ -1,0 +1,59 @@
+Full dataset: (2515573, 46)
+Sample dataset: (5000, 46)
+Χαρακτηριστικά: 45
+
+--- K-Means ---
+  k= 2 | Silhouette=0.454 | Davies-Bouldin=1.858
+  k= 3 | Silhouette=0.423 | Davies-Bouldin=1.529
+  k= 4 | Silhouette=0.258 | Davies-Bouldin=1.628
+  k= 5 | Silhouette=0.236 | Davies-Bouldin=1.553
+  k= 6 | Silhouette=0.250 | Davies-Bouldin=1.457
+  k= 7 | Silhouette=0.272 | Davies-Bouldin=1.436
+  k= 8 | Silhouette=0.282 | Davies-Bouldin=1.381
+  k= 9 | Silhouette=0.300 | Davies-Bouldin=1.427
+  k=10 | Silhouette=0.317 | Davies-Bouldin=1.305
+  -> Επιλεγμένο k = 2 (μέγιστο Silhouette)
+
+--- Hierarchical Clustering ---
+  linkage=ward      | Silhouette=0.427 | Davies-Bouldin=1.932 | μικρότερη ομάδα=921
+  linkage=complete  | Silhouette=0.894 | Davies-Bouldin=0.072 | μικρότερη ομάδα=1
+  linkage=average   | Silhouette=0.894 | Davies-Bouldin=0.072 | μικρότερη ομάδα=1
+  -> Επιλεγμένη μέθοδος σύνδεσης: ward
+
+--- DBSCAN ---
+  eps=  1.26 min_samples= 5 | ομάδες=81 θόρυβος= 866 | Silhouette=0.302
+  eps=  1.26 min_samples=10 | ομάδες=49 θόρυβος=1143 | Silhouette=0.308
+  eps=  2.13 min_samples= 5 | ομάδες=29 θόρυβος= 396 | Silhouette=0.352
+  eps=  2.13 min_samples=10 | ομάδες=18 θόρυβος= 552 | Silhouette=0.395
+  eps=  3.48 min_samples= 5 | ομάδες=14 θόρυβος= 204 | Silhouette=0.292
+  eps=  3.48 min_samples=10 | ομάδες=7 θόρυβος= 266 | Silhouette=0.296
+  -> Επιλεγμένο: eps=2.13, min_samples=10
+
+PCA: PC1+PC2 εξηγούν το 30.8% της συνολικής διακύμανσης
+
+============================================================
+  ΣΥΓΚΡΙΣΗ ΑΛΓΟΡΙΘΜΩΝ ΟΜΑΔΟΠΟΙΗΣΗΣ
+============================================================
+   algorithm                   params  n_clusters  min_cluster  silhouette  davies_bouldin      ARI      NMI
+     K-Means                      k=2           2          839    0.453932        1.857875 0.298537 0.178723
+Hierarchical             linkage=ward           2          921    0.427432        1.931756 0.212713 0.146001
+      DBSCAN eps=2.13, min_samples=10          18           11    0.395178        0.749318 0.087835 0.238184
+
+Πίνακας διασταύρωσης (Label x ομάδες) — K-Means:
+col_0                       0     1
+row_0                              
+BENIGN                    442  3712
+Bot                         0     4
+DDoS                       80   174
+DoS GoldenEye               8    13
+DoS Hulk                  291    53
+DoS Slowhttptest            8     2
+DoS slowloris               8     3
+FTP-Patator                 0    12
+PortScan                    2   178
+SSH-Patator                 0     6
+Web Attack - Brute Force    0     3
+Web Attack - XSS            0     1
+
+Όλα τα αρχεία αποθηκεύτηκαν στο: F:\ΣΧΟΛΗ\PROJECTS\εξόρυξη\output
+Done.

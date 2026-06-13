@@ -1,0 +1,25 @@
+# Dataset (πολύ μεγάλο για GitHub — διαθέσιμο από Kaggle)
+data/
+cleaned_dataset.csv
+
+# Word lock files
+~$*.docx
+~$*.doc
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Έχουμε ήδη το PDF, δεν χρειάζεται και το zip
+1084498_1088618.zip

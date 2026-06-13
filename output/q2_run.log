@@ -1,0 +1,176 @@
+Full dataset: (2515573, 46)
+Αφαιρέθηκαν σπάνιες κλάσεις (<50 στο train pool):
+Label
+Web Attack - XSS              26
+Web Attack - Sql Injection     1
+Infiltration                   1
+Name: count, dtype: int64
+
+Train pool:            (99972, 46)
+Holdout (final test):  (2414881, 46)
+Κατανομή κλάσεων (train pool):
+Label
+BENIGN                      83076
+DoS Hulk                     6871
+DDoS                         5089
+PortScan                     3605
+DoS GoldenEye                 409
+FTP-Patator                   236
+DoS slowloris                 214
+DoS Slowhttptest              208
+SSH-Patator                   128
+Bot                            78
+Web Attack - Brute Force       58
+Name: count, dtype: int64
+
+
+============================================================
+  ΠΡΟΣΕΓΓΙΣΗ Α: Train/Val στο pool, Test στο holdout
+============================================================
+  Train: 79,977 | Val: 19,995 | Test (holdout): 2,414,881
+
+  [LR] — Holdout Grid Search
+  Best params (holdout): {'clf__C': 10}  |  Val F1: 0.9216
+                          precision    recall  f1-score   support
+
+                  BENIGN       1.00      0.87      0.93   2006756
+                     Bot       0.02      0.95      0.03      1870
+                    DDoS       0.87      1.00      0.93    122925
+           DoS GoldenEye       0.52      0.99      0.68      9877
+                DoS Hulk       0.83      1.00      0.91    165975
+        DoS Slowhttptest       0.57      0.97      0.72      5020
+           DoS slowloris       0.50      0.97      0.66      5171
+             FTP-Patator       0.44      0.99      0.61      5695
+                PortScan       0.70      1.00      0.83     87089
+             SSH-Patator       0.11      0.98      0.20      3091
+Web Attack - Brute Force       0.06      0.95      0.11      1412
+
+                accuracy                           0.89   2414881
+               macro avg       0.51      0.97      0.60   2414881
+            weighted avg       0.96      0.89      0.92   2414881
+
+
+  [DT] — Holdout Grid Search
+  Best params (holdout): {'clf__max_depth': 20, 'clf__min_samples_leaf': 5}  |  Val F1: 0.9955
+                          precision    recall  f1-score   support
+
+                  BENIGN       1.00      1.00      1.00   2006756
+                     Bot       0.64      0.93      0.76      1870
+                    DDoS       1.00      1.00      1.00    122925
+           DoS GoldenEye       0.96      0.99      0.97      9877
+                DoS Hulk       0.99      1.00      0.99    165975
+        DoS Slowhttptest       0.89      0.97      0.93      5020
+           DoS slowloris       0.85      0.95      0.89      5171
+             FTP-Patator       1.00      1.00      1.00      5695
+                PortScan       0.98      1.00      0.99     87089
+             SSH-Patator       0.98      0.99      0.99      3091
+Web Attack - Brute Force       0.85      0.94      0.89      1412
+
+                accuracy                           1.00   2414881
+               macro avg       0.92      0.98      0.95   2414881
+            weighted avg       1.00      1.00      1.00   2414881
+
+
+  [RF] — Holdout Grid Search
+  Best params (holdout): {'clf__max_depth': 20, 'clf__n_estimators': 50}  |  Val F1: 0.9980
+                          precision    recall  f1-score   support
+
+                  BENIGN       1.00      1.00      1.00   2006756
+                     Bot       0.75      0.72      0.73      1870
+                    DDoS       1.00      1.00      1.00    122925
+           DoS GoldenEye       0.99      0.97      0.98      9877
+                DoS Hulk       1.00      1.00      1.00    165975
+        DoS Slowhttptest       0.99      0.96      0.98      5020
+           DoS slowloris       1.00      0.96      0.98      5171
+             FTP-Patator       1.00      0.99      0.99      5695
+                PortScan       0.99      1.00      0.99     87089
+             SSH-Patator       1.00      0.96      0.98      3091
+Web Attack - Brute Force       0.99      0.89      0.94      1412
+
+                accuracy                           1.00   2414881
+               macro avg       0.97      0.95      0.96   2414881
+            weighted avg       1.00      1.00      1.00   2414881
+
+
+============================================================
+  ΠΡΟΣΕΓΓΙΣΗ Β: GridSearchCV με 5-Fold CV
+============================================================
+  Train pool: 99,972 | Test (holdout): 2,414,881
+
+  [LR] — GridSearchCV (cv=5)
+  Best params (CV):      {'clf__C': 10}  |  CV F1: 0.9211
+                          precision    recall  f1-score   support
+
+                  BENIGN       1.00      0.87      0.93   2006756
+                     Bot       0.02      0.95      0.03      1870
+                    DDoS       0.87      1.00      0.93    122925
+           DoS GoldenEye       0.52      0.99      0.68      9877
+                DoS Hulk       0.83      1.00      0.91    165975
+        DoS Slowhttptest       0.57      0.97      0.72      5020
+           DoS slowloris       0.50      0.97      0.66      5171
+             FTP-Patator       0.44      0.99      0.61      5695
+                PortScan       0.70      1.00      0.83     87089
+             SSH-Patator       0.11      0.98      0.20      3091
+Web Attack - Brute Force       0.06      0.95      0.11      1412
+
+                accuracy                           0.89   2414881
+               macro avg       0.51      0.97      0.60   2414881
+            weighted avg       0.96      0.89      0.92   2414881
+
+
+  [DT] — GridSearchCV (cv=5)
+  Best params (CV):      {'clf__max_depth': 20, 'clf__min_samples_leaf': 5}  |  CV F1: 0.9960
+                          precision    recall  f1-score   support
+
+                  BENIGN       1.00      1.00      1.00   2006756
+                     Bot       0.64      0.93      0.76      1870
+                    DDoS       1.00      1.00      1.00    122925
+           DoS GoldenEye       0.96      0.99      0.97      9877
+                DoS Hulk       0.99      1.00      0.99    165975
+        DoS Slowhttptest       0.89      0.97      0.93      5020
+           DoS slowloris       0.85      0.95      0.89      5171
+             FTP-Patator       1.00      1.00      1.00      5695
+                PortScan       0.98      1.00      0.99     87089
+             SSH-Patator       0.98      0.99      0.99      3091
+Web Attack - Brute Force       0.85      0.94      0.89      1412
+
+                accuracy                           1.00   2414881
+               macro avg       0.92      0.98      0.95   2414881
+            weighted avg       1.00      1.00      1.00   2414881
+
+
+  [RF] — GridSearchCV (cv=5)
+  Best params (CV):      {'clf__max_depth': 20, 'clf__n_estimators': 100}  |  CV F1: 0.9979
+                          precision    recall  f1-score   support
+
+                  BENIGN       1.00      1.00      1.00   2006756
+                     Bot       0.75      0.72      0.73      1870
+                    DDoS       1.00      1.00      1.00    122925
+           DoS GoldenEye       0.99      0.97      0.98      9877
+                DoS Hulk       1.00      1.00      1.00    165975
+        DoS Slowhttptest       0.99      0.97      0.98      5020
+           DoS slowloris       1.00      0.96      0.98      5171
+             FTP-Patator       1.00      0.99      0.99      5695
+                PortScan       0.99      1.00      0.99     87089
+             SSH-Patator       1.00      0.97      0.98      3091
+Web Attack - Brute Force       0.99      0.91      0.95      1412
+
+                accuracy                           1.00   2414881
+               macro avg       0.97      0.95      0.96   2414881
+            weighted avg       1.00      1.00      1.00   2414881
+
+
+
+============================================================
+  ΣΥΓΚΡΙΣΗ ΜΟΝΤΕΛΩΝ (Accuracy & F1)
+============================================================
+model  approach  accuracy       f1
+   LR A_Holdout  0.891970 0.920353
+   DT A_Holdout  0.996667 0.996737
+   RF A_Holdout  0.998143 0.998136
+   LR      B_CV  0.891970 0.920353
+   DT      B_CV  0.996667 0.996737
+   RF      B_CV  0.998190 0.998183
+
+Όλα τα αρχεία αποθηκεύτηκαν στο: F:\ΣΧΟΛΗ\PROJECTS\εξόρυξη\output
+Done.
